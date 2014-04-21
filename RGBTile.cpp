@@ -13,6 +13,19 @@
 #include "RGBTile.h"
 // #include "SPI.h"
 
+// Create a 24 bit color value from R,G,B
+// From Adafruit_WS2801 library (examples)
+uint32_t Color(byte r, byte g, byte b)
+{
+  uint32_t c;
+  c = r;
+  c <<= 8;
+  c |= g;
+  c <<= 8;
+  c |= b;
+  return c;
+}
+
 RGBTile::RGBTile()
 {
   uint8_t dataPin  = 2;    // Yellow wire on Adafruit Pixels
@@ -30,19 +43,6 @@ RGBTile::RGBTile()
       _colors[i][j] = Color(255,255,255); //default color is white
     }
   }
-}
-
-// Create a 24 bit color value from R,G,B
-// From Adafruit_WS2801 library (examples)
-uint32_t RGBTile::Color(byte r, byte g, byte b)
-{
-  uint32_t c;
-  c = r;
-  c <<= 8;
-  c |= g;
-  c <<= 8;
-  c |= b;
-  return c;
 }
 
 void RGBTile::drawLetter(char c)

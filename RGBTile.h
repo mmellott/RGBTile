@@ -19,6 +19,8 @@
 #define NUM_ROWS 5
 #define NUM_COLS 5
 
+uint32_t Color(byte r, byte g, byte b);
+
 class RGBTile
 {
   public:
@@ -34,7 +36,6 @@ class RGBTile
   private:
     Adafruit_WS2801 _strip;
     byte* getLetter(char l);
-    uint32_t Color(byte r, byte g, byte b);
     uint32_t _colors[NUM_ROWS][NUM_COLS];
   
 };
