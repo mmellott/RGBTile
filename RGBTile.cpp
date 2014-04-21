@@ -47,7 +47,6 @@ uint32_t RGBTile::Color(byte r, byte g, byte b)
 
 void RGBTile::drawLetter(char c)
 {
-  Serial.println("ENTERING DRAW LETTER");
   load_bitmap(c);
   for(int i=0;i<NUM_ROWS;i++)
   {
@@ -57,10 +56,7 @@ void RGBTile::drawLetter(char c)
       int m = map(j, 0, NUM_COLS-1, NUM_COLS-1, 0);
       _strip.setPixelColor(m, k, ((0x1 << j) & bitmap[i])? _colors[m][k]:Color(0,0,0));
     }  
-    Serial.print(bitmap[i]);
-    Serial.print(" ");
   }
-  Serial.println("");
   _strip.show();
 }
 
